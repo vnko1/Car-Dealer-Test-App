@@ -30,13 +30,15 @@ This is a Car Dealer Application built with Next.js, React, and Tailwind CSS. Th
 
 To start the development server, run:
 
-````sh
+```sh
 npm run dev
+```
 
 To build the project for production, run:
+
 ```sh
 npm run build
-````
+```
 
 To start the production server, run:
 
