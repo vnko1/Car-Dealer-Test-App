@@ -7,15 +7,53 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  @apply scroll-smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  h1 {
+    @apply text-h1_sm leading-xl font-semibold md:text-h1_md md:font-bold md:leading-xxl md:tracking-tight lg:leading-3xl lg:text-h1_lg;
+  }
+
+  h2 {
+    @apply tracking-tight leading-sm font-semibold text-h2_sm lg:leading-xl lg:text-h2_lg;
+  }
+
+  h3 {
+    @apply tracking-tight leading-md font-semibold text-h3_sm lg:text-h3_lg lg:leading-lg;
+  }
+
+  p {
+    @apply leading-xs text-base font-normal lg:leading-sm lg:text-md;
+  }
+
+  img {
+    @apply block w-full h-auto;
+  }
+}
+
+@layer components {
+  .link {
+    @apply font-normal text-base leading-xs cursor-pointer transition-all duration-150 text-green-200;
+  }
+  .link:hover,
+  .link:focus {
+    @apply text-green-800;
+  }
+
+  .button {
+    @apply py-[0.375rem] px-4 rounded-xl text-base font-medium leading-xs bg-green-200 transition-all duration-150 cursor-pointer;
+  }
+
+  .button:hover,
+  .button:focus {
+    @apply bg-green-800;
+  }
 }
