@@ -6,7 +6,7 @@ import { Select, SelectItem, SelectProps } from "@nextui-org/select";
 
 import { CarSearch } from "@/types/searchParams";
 import { CarParams } from "@/types/api";
-import { getYears } from "@/utils";
+import { getYears } from "@/utils/functions";
 
 interface AnimalProps extends Partial<SelectProps> {
   className?: string;

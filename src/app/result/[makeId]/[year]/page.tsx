@@ -1,9 +1,10 @@
 import React, { Suspense } from "react";
+import { redirect } from "next/navigation";
 
 import { CarSearch } from "@/types/searchParams";
+import { startDate, getYears } from "@/utils";
 import { getAllCars } from "@/api/api";
-import { FilteredCars } from "@/components";
-import { getYears } from "@/utils";
+import { FilteredCars, Loader } from "@/components";
 
 export async function generateStaticParams() {
   const res = await getAllCars();
@@ -24,9 +25,16 @@ export async function generateStaticParams() {
 async function Page({ params }: { params: Promise<CarSearch> }) {
   const filters = await params;
 
+  if (
+    filters.year > new Date().getFullYear().toString() ||
+    filters.year < startDate.toString()
+  ) {
+    redirect(`/result/${filters.makeId}/${new Date().getFullYear()}`);
+  }
+
   return (
     <main>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <FilteredCars params={filters} />
       </Suspense>
     </main>
