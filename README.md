@@ -16,7 +16,7 @@ This is a Car Dealer Application built with Next.js, React, and Tailwind CSS. Th
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/car-dealer-app.git
+   git clone https://github.com/vnko1/Car-Dealer-Test-App.git
    ```
 2. Navigate to the project directory:
    ```sh
