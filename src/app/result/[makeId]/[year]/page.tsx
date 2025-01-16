@@ -11,15 +11,11 @@ export async function generateStaticParams() {
 
   if (typeof res === "string" || res instanceof Blob || res instanceof Error)
     throw new Error();
+  const years = getYears();
 
-  const paths = res.Results.flatMap((make) => {
-    const years = getYears();
-    return years.map((year) => ({
-      params: { makeId: make.MakeId.toString(), year },
-    }));
+  return res.Results.slice(0, 5).flatMap((make) => {
+    return years.map((year) => ({ makeId: make.MakeId.toString(), year }));
   });
-
-  return paths;
 }
 
 async function Page({ params }: { params: Promise<CarSearch> }) {
